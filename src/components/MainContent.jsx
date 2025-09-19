@@ -52,12 +52,12 @@ const MainContent = ({
       <Header
         setSidebarCollapsed={setSidebarCollapsed}
         sidebarCollapsed={sidebarCollapsed}
-        activeSection={activeSection} 
+        activeSection={activeSection}
       />
 
       <div className="flex-1 flex overflow-hidden">
         {/* Dashboard Content */}
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto p-6 sidebar-scroll ">
           <h1 className="text-2xl font-semibold text-gray-900 mb-6">
             {activeSection}
           </h1>

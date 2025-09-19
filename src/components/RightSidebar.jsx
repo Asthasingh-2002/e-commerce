@@ -1,61 +1,66 @@
-import React from 'react'
+import React from "react";
 
- const notifications = [
-    { type: "bug", message: "You have a bug that needs...", time: "Just now" },
-    { type: "user", message: "New user registered", time: "57 minutes ago" },
-    {
-      type: "bug",
-      message: "You have a bug that needs...",
-      time: "12 hours ago",
-    },
-    {
-      type: "subscription",
-      message: "Andi Lane subscribed to you",
-      time: "Today, 11:59 AM",
-    },
-  ];
+const notifications = [
+  { type: "bug", message: "You have a bug that needs...", time: "Just now" },
+  { type: "user", message: "New user registered", time: "57 minutes ago" },
+  {
+    type: "bug",
+    message: "You have a bug that needs...",
+    time: "12 hours ago",
+  },
+  {
+    type: "subscription",
+    message: "Andi Lane subscribed to you",
+    time: "Today, 11:59 AM",
+  },
+];
 
-  const activities = [
-    {
-      user: "You",
-      action: "have a bug that needs...",
-      time: "Just now",
-      avatar: "Y",
-    },
-    {
-      user: "Released",
-      action: "a new version",
-      time: "59 minutes ago",
-      avatar: "R",
-    },
-    { user: "Submitted", action: "a bug", time: "12 hours ago", avatar: "S" },
-    {
-      user: "Modified",
-      action: "A data in Page X",
-      time: "Today, 11:59 AM",
-      avatar: "M",
-    },
-    {
-      user: "Deleted",
-      action: "a page in Project X",
-      time: "Feb 2, 2023",
-      avatar: "D",
-    },
-  ];
+const activities = [
+  {
+    user: "You",
+    action: "have a bug that needs...",
+    time: "Just now",
+    avatar: "Y",
+  },
+  {
+    user: "Released",
+    action: "a new version",
+    time: "59 minutes ago",
+    avatar: "R",
+  },
+  { user: "Submitted", action: "a bug", time: "12 hours ago", avatar: "S" },
+  {
+    user: "Modified",
+    action: "A data in Page X",
+    time: "Today, 11:59 AM",
+    avatar: "M",
+  },
+  {
+    user: "Deleted",
+    action: "a page in Project X",
+    time: "Feb 2, 2023",
+    avatar: "D",
+  },
+];
 
-  const contacts = [
-    { name: "Natali Craig", avatar: "N" },
-    { name: "Drew Cano", avatar: "D" },
-    { name: "Orlando Diggs", avatar: "O" },
-    { name: "Andi Lane", avatar: "A" },
-    { name: "Kate Morrison", avatar: "K" },
-    { name: "Koray Okumus", avatar: "K" },
-  ];
+const contacts = [
+  { name: "Natali Craig", avatar: "N" },
+  { name: "Drew Cano", avatar: "D" },
+  { name: "Orlando Diggs", avatar: "O" },
+  { name: "Andi Lane", avatar: "A" },
+  { name: "Kate Morrison", avatar: "K" },
+  { name: "Koray Okumus", avatar: "K" },
+];
 
 const RightSidebar = () => {
   return (
     <div>
-      <aside className="w-80 bg-white border-l border-gray-200 overflow-y-auto">
+      <aside
+        className={`sidebar-scroll         
+       bg-white border-r border-gray-200 transition-all duration-300 h-screen overflow-y-auto`}
+      >
+        {" "}
+        {/* Added h-screen and overflow-y-auto */}
         <div className="p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Notifications
@@ -119,6 +124,6 @@ const RightSidebar = () => {
       </aside>
     </div>
   );
-}
+};
 
-export default RightSidebar
+export default RightSidebar;

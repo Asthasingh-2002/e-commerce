@@ -48,7 +48,7 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
     <div
       className={`${
         sidebarCollapsed ? "w-16" : "w-64"
-      } bg-white border-r border-gray-200 transition-all duration-300`}
+      } bg-white border-r border-gray-200 transition-all duration-300 h-screen overflow-y-hidden`}
     >
       <div className="p-4">
         <div className="flex items-center space-x-2">
