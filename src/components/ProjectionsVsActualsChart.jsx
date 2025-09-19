@@ -9,7 +9,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// Sample data matching the visual proportions from your image
 const data = [
   {
     month: "Jan",

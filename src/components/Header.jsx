@@ -1,7 +1,15 @@
-import { Bell, Menu, Moon, RotateCcw, Search, Settings, Star } from 'lucide-react';
-import React from 'react'
+import {
+  Bell,
+  Menu,
+  Moon,
+  RotateCcw,
+  Search,
+  Settings,
+  Star,
+} from "lucide-react";
+import React from "react";
 
-const Header = ({ setSidebarCollapsed, sidebarCollapsed }) => {
+const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
   return (
     <>
       <header className="bg-white border-b border-gray-200 px-6 py-4">
@@ -13,7 +21,11 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed }) => {
             <div className="flex items-center space-x-2">
               <Star className="w-4 h-4 text-gray-400" />
               <span className="text-sm text-gray-500">Dashboards</span>
-              <span className="text-sm text-gray-900 font-medium">Default</span>
+              {activeSection && <span className=" text-gray-500">/</span>}
+              <span className="text-sm text-gray-900 font-medium">
+                {activeSection}
+              </span>{" "}
+              {/* Updated */}
             </div>
           </div>
 
@@ -29,7 +41,7 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed }) => {
                 ⌘/
               </span>
             </div>
-           
+
             <button className="p-2 hover:bg-gray-100 rounded-lg">
               <Moon className="w-4 h-4 text-gray-500" />
             </button>
@@ -47,6 +59,6 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed }) => {
       </header>
     </>
   );
-}
+};
 
-export default Header
+export default Header;

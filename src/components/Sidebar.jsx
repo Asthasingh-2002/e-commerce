@@ -1,38 +1,49 @@
-import { BarChart3, Building2, FileText, FolderOpen, MessageSquare, Settings, ShoppingCart, User } from 'lucide-react';
- const sidebarItems = [
-   {
-     category: "Favorites",
-     items: [
-       { name: "Overview", icon: BarChart3, active: false },
-       { name: "Projects", icon: FolderOpen, active: false },
-     ],
-   },
-   {
-     category: "Recently",
-     items: [],
-   },
-   {
-     category: "Dashboards",
-     items: [
-       { name: "Default", icon: BarChart3, active: false },
-       { name: "eCommerce", icon: ShoppingCart, active: true },
-       { name: "Projects", icon: FolderOpen, active: false },
-       { name: "Online Courses", icon: FileText, active: false },
-       { name: "Orders", icon: FileText, active: false },
-     ],
-   },
-   {
-     category: "Pages",
-     items: [
-       { name: "User Profile", icon: User, active: false },
-       { name: "Account", icon: Settings, active: false },
-       { name: "Corporate", icon: Building2, active: false },
-       { name: "Blog", icon: FileText, active: false },
-       { name: "Social", icon: MessageSquare, active: false },
-     ],
-   },
- ];
-const Sidebar = ({ sidebarCollapsed }) => {
+import {
+  BarChart3,
+  Building2,
+  FileText,
+  FolderOpen,
+  MessageSquare,
+  Settings,
+  ShoppingCart,
+  User,
+} from "lucide-react";
+
+const sidebarItems = [
+  {
+    category: "Favorites",
+    items: [
+      { name: "Overview", icon: BarChart3, active: false },
+      { name: "Projects", icon: FolderOpen, active: false },
+    ],
+  },
+  {
+    category: "Recently",
+    items: [],
+  },
+  {
+    category: "Dashboards",
+    items: [
+      { name: "Default", icon: BarChart3, active: false },
+      { name: "eCommerce", icon: ShoppingCart, active: true },
+      { name: "Projects", icon: FolderOpen, active: false },
+      { name: "Online Courses", icon: FileText, active: false },
+      { name: "Orders", icon: FileText, active: false },
+    ],
+  },
+  {
+    category: "Pages",
+    items: [
+      { name: "User Profile", icon: User, active: false },
+      { name: "Account", icon: Settings, active: false },
+      { name: "Corporate", icon: Building2, active: false },
+      { name: "Blog", icon: FileText, active: false },
+      { name: "Social", icon: MessageSquare, active: false },
+    ],
+  },
+];
+
+const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
   return (
     <div
       className={`${
@@ -63,10 +74,11 @@ const Sidebar = ({ sidebarCollapsed }) => {
                 <li key={itemIdx}>
                   <button
                     className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                      item.active
+                      activeSection === item.name
                         ? "bg-gray-100 text-gray-900 font-medium"
                         : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                     }`}
+                    onClick={() => setActiveSection(item.name)}
                   >
                     <item.icon className="w-4 h-4" />
                     {!sidebarCollapsed && <span>{item.name}</span>}
@@ -79,6 +91,6 @@ const Sidebar = ({ sidebarCollapsed }) => {
       </nav>
     </div>
   );
-}
+};
 
-export default Sidebar
+export default Sidebar;
