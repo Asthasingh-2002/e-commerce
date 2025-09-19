@@ -18,24 +18,21 @@ import MainContent from "./MainContent";
 import RightSidebar from "./RightSidebar";
 
 export default function Dashboard() {
-//   const [activeSection, setActiveSection] = useState("eCommerce");
+  //   const [activeSection, setActiveSection] = useState("eCommerce");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-
- 
-
- 
-
-
 
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
       <Sidebar sidebarCollapsed={sidebarCollapsed} /> {/* Main Content */}
       {/*  Main Content */}
-      <MainContent setSidebarCollapsed={setSidebarCollapsed} sidebarCollapsed={sidebarCollapsed} />
-      
+      <MainContent
+        setSidebarCollapsed={setSidebarCollapsed}
+        sidebarCollapsed={sidebarCollapsed}
+      />
       {/* <RightSidebar /> */}
       <RightSidebar />
+      
     </div>
   );
 }

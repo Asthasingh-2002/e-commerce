@@ -18,6 +18,7 @@ import { BarChart3, Building2, FileText, FolderOpen, MessageSquare, Settings, Sh
        { name: "eCommerce", icon: ShoppingCart, active: true },
        { name: "Projects", icon: FolderOpen, active: false },
        { name: "Online Courses", icon: FileText, active: false },
+       { name: "Orders", icon: FileText, active: false },
      ],
    },
    {
