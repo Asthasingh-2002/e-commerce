@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Search, Calendar, ListFilter, ArrowDownUp, Plus } from "lucide-react";
+import {
+  ArrowDownUpIcon,
+  CalendarIcon,
+  ListFilterIcon,
+  PlusIcon,
+} from "../assets/icon";
 
 const ordersData = [
   {
@@ -22,7 +28,7 @@ const ordersData = [
     date: "A minute ago",
     status: "Complete",
     avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face",
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
   },
   {
     id: "#CM9803",
@@ -90,17 +96,17 @@ const ordersData = [
 const getStatusColor = (status) => {
   switch (status) {
     case "Complete":
-      return " text-emerald-600 ";
+      return " text-[#4AA785] ";
     case "In Progress":
-      return "text-blue-600 ";
+      return "text-[#8A8CD9] ";
     case "Pending":
-      return "text-sky-600 ";
+      return "text-[#59A8D4] ";
     case "Approved":
-      return "text-amber-600";
+      return "text-[#FFC555] ";
     case "Rejected":
-      return "text-gray-500 ";
+      return "text-[#1C1C1C66] ";
     default:
-      return "text-gray-500 ";
+      return "text-[#1C1C1C66] ";
   }
 };
 
@@ -175,16 +181,16 @@ export default function OrdersTable() {
 
   return (
     <div className="w-full bg-white">
-      <div className="flex items-center justify-between p-5 border-b border-gray-100">
+      <div className="flex items-center justify-between bg-[#F7F9FB] p-3 rounded-lg ">
         <div className="flex items-center  gap-4">
           <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <Plus className=" text-[#1C1C1C] h-4 w-4" />
+            <PlusIcon className=" text-[#1C1C1C] h-4 w-4" />
           </button>
           <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <ListFilter className=" text-[#1C1C1C] h-4 w-4" />
+            <ListFilterIcon className=" text-[#1C1C1C] h-4 w-4" />
           </button>
           <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <ArrowDownUp className=" text-[#1C1C1C] h-4 w-4" />
+            <ArrowDownUpIcon className=" text-[#1C1C1C] h-4 w-4" />
           </button>
         </div>
         <div className="relative">
@@ -204,29 +210,37 @@ export default function OrdersTable() {
           <thead>
             <tr className="border-b border-gray-100">
               <th className="text-left p-4 font-medium text-gray-500 text-sm">
+                {/* <input
+                  type="checkbox"
+                  checked={allChecked}
+                  onChange={handleCheckAll}
+                  className="w-4 h-4 text-white bg-white border-gray-200 rounded-2xl checked:bg-black checked:border-black checked:text-white"
+                /> */}
+
                 <input
                   type="checkbox"
                   checked={allChecked}
                   onChange={handleCheckAll}
-                  className="w-4 h-4 text-blue-600 bg-white border-gray-200 rounded focus:ring-blue-500 focus:ring-2"
+                  style={{ accentColor: "#000000" }}
+                  className="w-4 h-4 rounded"
                 />
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 Order ID
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 User
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 Project
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 Address
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 Date
               </th>
-              <th className="text-left p-4 font-medium text-gray-500 text-sm">
+              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
                 Status
               </th>
               <th className="w-8"></th>
@@ -243,12 +257,11 @@ export default function OrdersTable() {
                     type="checkbox"
                     checked={checkedOrders.includes(order.id)}
                     onChange={() => handleCheck(order.id)}
-                    className="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                    style={{ accentColor: "#000000", borderRadius: "12px" }}
+                    className="w-4 h-4 rounded-2xl"
                   />
                 </td>
-                <td className="p-4 font-medium text-[#1C1C1C] text-sm">
-                  {order.id}
-                </td>
+                <td className="p-4  text-[#1C1C1C] text-sm">{order.id}</td>
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <img
@@ -256,7 +269,7 @@ export default function OrdersTable() {
                       alt={order.user}
                       className="w-8 h-8 rounded-full object-cover"
                     />
-                    <span className="text-[#1C1C1C] text-sm font-medium">
+                    <span className="text-[#1C1C1C] text-sm ">
                       {order.user}
                     </span>
                   </div>
@@ -264,28 +277,28 @@ export default function OrdersTable() {
                 <td className="p-4 text-gray-700 text-sm">{order.project}</td>
                 <td className="p-4 text-gray-700 text-sm">{order.address}</td>
                 <td className="p-4">
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
-                    <Calendar className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-[#1C1C1C] text-sm">
+                    <CalendarIcon />
                     {order.date}
                   </div>
                 </td>
                 <td className="p-4">
                   <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getStatusColor(
+                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm ${getStatusColor(
                       order.status
                     )}`}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded mr-1.5 ${
                         order.status === "Complete"
-                          ? "bg-emerald-500"
+                          ? "bg-[#4AA785]"
                           : order.status === "In Progress"
-                          ? "bg-blue-500"
+                          ? "bg-[#8A8CD9]"
                           : order.status === "Pending"
-                          ? "bg-sky-500"
+                          ? "bg-[#59A8D4]"
                           : order.status === "Approved"
-                          ? "bg-amber-500"
-                          : "bg-gray-400"
+                          ? "bg-[#FFC555]"
+                          : "bg-[#1C1C1C66]"
                       }`}
                     ></span>
                     {order.status}
