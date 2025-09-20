@@ -1,13 +1,12 @@
+import { Search } from "lucide-react";
 import {
-  Bell,
-  Menu,
-  Moon,
-  RotateCcw,
-  Search,
-  Settings,
-  Star,
-} from "lucide-react";
-import React from "react";
+  BellIcon,
+  ClockIcon,
+  SearchbarSideIcon,
+  StarIcon,
+  SunIcon,
+  TabIcon,
+} from "../assets/icon";
 
 const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
   return (
@@ -16,10 +15,10 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
-              <Menu className="w-5 h-5 text-gray-500" />
+              <TabIcon />
             </button>
-            <div className="flex items-center space-x-2">
-              <Star className="w-4 h-4 text-gray-400" />
+            <div className="flex items-center space-x-4">
+              <StarIcon />
               <span className="text-sm text-gray-500">Dashboards</span>
               {activeSection && <span className=" text-gray-500">/</span>}
               <span className="text-sm text-gray-900 font-medium">
@@ -29,30 +28,38 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             <div className="relative">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <Search
+                className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2"
+                style={{ color: "#1C1C1C33" }}
+              />
               <input
                 type="text"
                 placeholder="Search"
-                className="pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 placeholder:text-[#1C1C1C33]"
+                style={{
+                  color: "#1C1C1C",
+                  backgroundColor: "#F3F4F6",
+                  fontWeight: "400",
+                }}
               />
-              <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-gray-400">
-                ⌘/
+              <span className="absolute right-3 top-1/2 transform -translate-y-1/2 ">
+                <SearchbarSideIcon />
               </span>
             </div>
 
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Moon className="w-4 h-4 text-gray-500" />
+            <button className="p-1 hover:bg-gray-100 rounded-lg">
+              <SunIcon />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <RotateCcw className="w-4 h-4 text-gray-500" />
+            <button className="p-1 hover:bg-gray-100 rounded-lg">
+              <ClockIcon />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Bell className="w-4 h-4 text-gray-500" />
+            <button className="p-1 hover:bg-gray-100 rounded-lg">
+              <BellIcon />
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <Menu className="w-4 h-4 text-gray-500" />
+            <button className="p-1 hover:bg-gray-100 rounded-lg">
+              <TabIcon />
             </button>
           </div>
         </div>

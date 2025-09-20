@@ -65,7 +65,7 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
         {sidebarItems.map((section, idx) => (
           <div key={idx}>
             {!sidebarCollapsed && (
-              <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2 flex items-center">
                 {section.category}
               </h3>
             )}
@@ -80,7 +80,11 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
                     }`}
                     onClick={() => setActiveSection(item.name)}
                   >
-                    <item.icon className="w-4 h-4" />
+                    {section.category === "Favorites" ? (
+                      <span className="inline-block w-2 h-2 rounded-full bg-gray-400" />
+                    ) : (
+                      <item.icon className="w-4 h-4" />
+                    )}
                     {!sidebarCollapsed && <span>{item.name}</span>}
                   </button>
                 </li>
