@@ -45,10 +45,10 @@ const data = [
 export function ProjectionsVsActualsChart() {
   return (
     <div className="w-full">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <h3 className="text-md font-semibold text-[#1C1C1C]">
         Projections vs Actuals
       </h3>
-      <div className="h-64 w-full">
+      <div className="h-55 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}

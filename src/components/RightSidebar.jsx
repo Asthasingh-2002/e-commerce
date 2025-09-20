@@ -62,7 +62,7 @@ const RightSidebar = () => {
         {" "}
         {/* Added h-screen and overflow-y-auto */}
         <div className="p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          <h2 className="text-lg font-semibold text-[#1C1C1C] mb-4">
             Notifications
           </h2>
           <div className="space-y-4">
@@ -72,7 +72,7 @@ const RightSidebar = () => {
                   <span className="text-red-600 text-xs">!</span>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-900">
+                  <p className="text-sm text-[#1C1C1C]">
                     {notification.message}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
@@ -83,7 +83,7 @@ const RightSidebar = () => {
             ))}
           </div>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">
+          <h3 className="text-lg font-semibold text-[#1C1C1C] mt-8 mb-4">
             Activities
           </h3>
           <div className="space-y-4">
@@ -95,7 +95,7 @@ const RightSidebar = () => {
                   </span>
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-900">
+                  <p className="text-sm text-[#1C1C1C]">
                     <span className="font-medium">{activity.user}</span>{" "}
                     {activity.action}
                   </p>
@@ -105,7 +105,7 @@ const RightSidebar = () => {
             ))}
           </div>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">
+          <h3 className="text-lg font-semibold text-[#1C1C1C] mt-8 mb-4">
             Contacts
           </h3>
           <div className="space-y-3">
@@ -116,7 +116,7 @@ const RightSidebar = () => {
                     {contact.avatar}
                   </span>
                 </div>
-                <span className="text-sm text-gray-900">{contact.name}</span>
+                <span className="text-sm text-[#1C1C1C]">{contact.name}</span>
               </div>
             ))}
           </div>

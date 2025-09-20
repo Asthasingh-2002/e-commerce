@@ -24,16 +24,16 @@ export default function RevenueChart() {
     <div className="w-full">
       {/* Header with title and legend */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-medium text-gray-900">Revenue</h3>
+        <h3 className="text-md font-medium text-[#1C1C1C]">Revenue</h3>
         <div className="flex items-center gap-6 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-black"></div>
-            <span className="text-gray-600">Current Week</span>
+            <span className="text-[#1C1C1C]">Current Week</span>
             <span className="font-medium">$58,211</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-blue-300"></div>
-            <span className="text-gray-600">Previous Week</span>
+            <span className="text-[#1C1C1C] ">Previous Week</span>
             <span className="font-medium">$68,768</span>
           </div>
         </div>

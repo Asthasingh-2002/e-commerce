@@ -246,7 +246,7 @@ export default function OrdersTable() {
                     className="w-4 h-4 text-blue-600 bg-white border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                   />
                 </td>
-                <td className="p-4 font-medium text-gray-900 text-sm">
+                <td className="p-4 font-medium text-[#1C1C1C] text-sm">
                   {order.id}
                 </td>
                 <td className="p-4">
@@ -256,7 +256,7 @@ export default function OrdersTable() {
                       alt={order.user}
                       className="w-8 h-8 rounded-full object-cover"
                     />
-                    <span className="text-gray-900 text-sm font-medium">
+                    <span className="text-[#1C1C1C] text-sm font-medium">
                       {order.user}
                     </span>
                   </div>

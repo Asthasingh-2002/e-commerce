@@ -15,7 +15,7 @@ const directPercentage = ((salesData[0].value / totalSales) * 100).toFixed(1);
 export function TotalSalesChart() {
   return (
     <div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Total Sales</h3>
+      <h3 className="text-md font-semibold text-[#1C1C1C] mb-4">Total Sales</h3>
 
       {/* Donut Chart */}
       <div className="flex items-center justify-center mb-6">
@@ -58,7 +58,7 @@ export function TotalSalesChart() {
               ></div>
               <span className="text-gray-700">{item.name}</span>
             </span>
-            <span className="font-medium text-gray-900">${item.value}</span>
+            <span className="font-medium text-[#1C1C1C]">${item.value}</span>
           </div>
         ))}
       </div>

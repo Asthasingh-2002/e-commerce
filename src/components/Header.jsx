@@ -21,7 +21,7 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
               <StarIcon />
               <span className="text-sm text-gray-500">Dashboards</span>
               {activeSection && <span className=" text-gray-500">/</span>}
-              <span className="text-sm text-gray-900 font-medium">
+              <span className="text-sm text-[#1C1C1C] font-medium">
                 {activeSection}
               </span>{" "}
               {/* Updated */}

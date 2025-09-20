@@ -56,7 +56,7 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
             <span className="text-white text-sm font-bold">B</span>
           </div>
           {!sidebarCollapsed && (
-            <span className="font-semibold text-gray-900">ByeWind</span>
+            <span className="font-semibold text-[#1C1C1C]">ByeWind</span>
           )}
         </div>
       </div>
@@ -75,8 +75,8 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
                   <button
                     className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                       activeSection === item.name
-                        ? "bg-gray-100 text-gray-900 font-medium"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                        ? "bg-gray-100 text-[#1C1C1C] font-medium"
+                        : "text-gray-600 hover:bg-gray-50 hover:text-[#1C1C1C]"
                     }`}
                     onClick={() => setActiveSection(item.name)}
                   >

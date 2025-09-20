@@ -10,7 +10,7 @@ const revenueByLocation = [
 export function RevenueByLocation() {
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">
+      <h3 className="text-md font-semibold text-[#1C1C1C]">
         Revenue by Location
       </h3>
 
@@ -55,7 +55,7 @@ export function RevenueByLocation() {
         {revenueByLocation.map((location, idx) => (
           <div key={idx} className="flex items-center justify-between">
             <div className="flex-1">
-              <div className="text-sm font-medium text-gray-900 mb-1">
+              <div className="text-sm font-medium text-[#1C1C1C] mb-1">
                 {location.city}
               </div>
               <div className="w-full bg-gray-200 rounded-full h-1">
@@ -70,7 +70,7 @@ export function RevenueByLocation() {
                 />
               </div>
             </div>
-            <div className="ml-4 text-sm font-semibold text-gray-900">
+            <div className="ml-4 text-sm font-semibold text-[#1C1C1C]">
               {location.value}
             </div>
           </div>
