@@ -60,7 +60,11 @@ const MainContent = ({
       <div className="flex-1 flex overflow-hidden">
         {/* Dashboard Content */}
         <main className="flex-1 overflow-y-auto p-6 sidebar-scroll ">
-          <h1 className={`text-lg font-semibold mb-6 ${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}>
+          <h1
+            className={`text-lg font-semibold mb-6 ${
+              bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+            }`}
+          >
             {activeSection === "Orders" ? "Order List" : "eCommerce"}
           </h1>
           {activeSection === "Orders" ? (
@@ -71,8 +75,8 @@ const MainContent = ({
             <>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
                 {/* Top Metrics */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                  <div className="bg-[#E3F5FF] rounded-2xl p-8 h-fit">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-stretch">
+                  <div className="bg-[#E3F5FF] rounded-2xl p-8 h-full flex flex-col justify-between">
                     <h3 className="text-sm font-medium text-[#1C1C1C] mb-2">
                       Customers
                     </h3>
@@ -88,7 +92,7 @@ const MainContent = ({
                   </div>
 
                   <div
-                    className={`rounded-2xl p-8 h-fit ${
+                    className={`rounded-2xl p-8 h-full flex flex-col justify-between ${
                       bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                     }`}
                   >
@@ -119,7 +123,7 @@ const MainContent = ({
                   </div>
 
                   <div
-                    className={`rounded-2xl p-8 h-fit ${
+                    className={`rounded-2xl p-8 h-full flex flex-col justify-between ${
                       bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                     }`}
                   >
@@ -150,7 +154,7 @@ const MainContent = ({
                   </div>
 
                   <div
-                    className={`bg-[#E5ECF6] rounded-2xl p-8 h-fit ${
+                    className={`bg-[#E5ECF6] rounded-2xl p-8 h-full flex flex-col justify-between ${
                       bgActive
                         ? "text-[#FFFFFF99] border-[#FFFFFF33]"
                         : "text-[#1C1C1C66] border-[#1C1C1C33]"
