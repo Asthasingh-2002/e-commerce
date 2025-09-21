@@ -12,10 +12,16 @@ const salesData = [
 const totalSales = salesData.reduce((sum, item) => sum + item.value, 0);
 const directPercentage = ((salesData[0].value / totalSales) * 100).toFixed(1);
 
-export function TotalSalesChart() {
+export function TotalSalesChart({ bgActive }) {
   return (
     <div>
-      <h3 className="text-md font-semibold text-[#1C1C1C] mb-4">Total Sales</h3>
+      <h3
+        className={`text-md font-semibold mb-4 ${
+          bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+        }`}
+      >
+        Total Sales
+      </h3>
 
       {/* Donut Chart */}
       <div className="flex items-center justify-center mb-6">
@@ -40,7 +46,13 @@ export function TotalSalesChart() {
 
           {/* Center Label */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-gray-800 text-white px-3 py-1 rounded-lg">
+            <div
+              className={`${
+                bgActive
+                  ? "bg-[#404040] text-[#FFFFFF]"
+                  : "bg-gray-800 text-white"
+              } px-3 py-1 rounded-lg`}
+            >
               <span className="text-sm font-semibold">{directPercentage}%</span>
             </div>
           </div>
@@ -56,9 +68,19 @@ export function TotalSalesChart() {
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: item.color }}
               ></div>
-              <span className="text-gray-700">{item.name}</span>
+              <span
+                className={`${bgActive ? "text-[#FFFFFF]" : "text-gray-700"}`}
+              >
+                {item.name}
+              </span>
             </span>
-            <span className="font-medium text-[#1C1C1C]">${item.value}</span>
+            <span
+              className={`font-medium ${
+                bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+              }`}
+            >
+              ${item.value}
+            </span>
           </div>
         ))}
       </div>

@@ -18,7 +18,9 @@ const Header = ({
   return (
     <>
       <header
-        className="border-b border-gray-200 px-6 py-4"
+        className={`border-b ${
+          bgActive ? "border-[#FFFFFF1A]" : "border-gray-200"
+        } px-6 py-4`}
         style={{
           background: bgActive ? "#1C1C1C" : "#fff",
         }}

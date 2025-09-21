@@ -92,9 +92,11 @@ const Sidebar = ({
 
   return (
     <div
-      className={`${sidebarCollapsed ? "w-16" : "w-64"} ${
-        bgActive ? "bg-[#1C1C1C]" : "bg-white"
-      } border-r border-gray-200 transition-all duration-300 h-screen flex flex-col`}
+      className={`border-r ${sidebarCollapsed ? "w-16" : "w-64"} ${
+        bgActive
+          ? "bg-[#1C1C1C] border-[#FFFFFF1A]"
+          : "bg-white border-gray-200"
+      }   transition-all duration-300 h-screen flex flex-col`}
     >
       <div
         className={`p-4 sticky top-0 z-10 ${
@@ -108,7 +110,13 @@ const Sidebar = ({
             className="w-8 h-8 rounded-2xl object-cover"
           />
           {!sidebarCollapsed && (
-            <span className={`font-semibold ${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}>ByeWind</span>
+            <span
+              className={`font-semibold ${
+                bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+              }`}
+            >
+              ByeWind
+            </span>
           )}
         </div>
       </div>

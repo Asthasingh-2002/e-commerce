@@ -19,22 +19,52 @@ const revenueData = [
   { month: "Jun", currentWeek: 19000000, previousWeek: 23000000 },
 ];
 
-export default function RevenueChart() {
+export default function RevenueChart({ bgActive }) {
   return (
     <div className="w-full">
       {/* Header with title and legend */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-md font-medium text-[#1C1C1C]">Revenue</h3>
+        <h3
+          className={`text-md font-medium ${
+            bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+          }`}
+        >
+          Revenue
+        </h3>
         <div className="flex items-center gap-6 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-black"></div>
-            <span className="text-[#1C1C1C]">Current Week</span>
-            <span className="font-medium">$58,211</span>
+            <div
+              className={`w-2 h-2 rounded-full ${
+                bgActive ? "bg-white" : "bg-black"
+              }`}
+            ></div>
+            <span
+              className={`${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}
+            >
+              Current Week
+            </span>
+            <span
+              className={`font-medium ${
+                bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+              }`}
+            >
+              $58,211
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-blue-300"></div>
-            <span className="text-[#1C1C1C] ">Previous Week</span>
-            <span className="font-medium">$68,768</span>
+            <span
+              className={`${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}
+            >
+              Previous Week
+            </span>
+            <span
+              className={`font-medium ${
+                bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+              }`}
+            >
+              $68,768
+            </span>
           </div>
         </div>
       </div>
@@ -46,27 +76,36 @@ export default function RevenueChart() {
             data={revenueData}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={bgActive ? "#FFFFFF33" : "#f0f0f0"}
+            />
             <XAxis
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12, fill: "#9ca3af" }}
+              tick={{
+                fontSize: 12,
+                fill: bgActive ? "#FFFFFF99" : "#9ca3af",
+              }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12, fill: "#9ca3af" }}
+              tick={{
+                fontSize: 12,
+                fill: bgActive ? "#FFFFFF99" : "#9ca3af",
+              }}
               tickFormatter={(value) => `${value / 1000000}M`}
               domain={[0, 30000000]}
               ticks={[0, 10000000, 20000000, 30000000]}
             />
 
-            {/* Current Week Line (Black) */}
+            {/* Current Week Line (Black/White) */}
             <Line
               type="monotone"
               dataKey="currentWeek"
-              stroke="#000000"
+              stroke={bgActive ? "#FFFFFF" : "#000000"}
               strokeWidth={2.5}
               dot={false}
               strokeDasharray="0 0"

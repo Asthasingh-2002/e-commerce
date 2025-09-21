@@ -42,10 +42,14 @@ const data = [
   },
 ];
 
-export function ProjectionsVsActualsChart() {
+export function ProjectionsVsActualsChart({ bgActive }) {
   return (
     <div className="w-full">
-      <h3 className="text-md font-semibold text-[#1C1C1C]">
+      <h3
+        className={`text-md font-semibold ${
+          bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+        }`}
+      >
         Projections vs Actuals
       </h3>
       <div className="h-55 w-full">
@@ -62,20 +66,26 @@ export function ProjectionsVsActualsChart() {
           >
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="#e5e7eb"
+              stroke={bgActive ? "#FFFFFF33" : "#e5e7eb"}
               opacity={0.3}
             />
             <XAxis
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9ca3af", fontSize: 14 }}
+              tick={{
+                fill: bgActive ? "#FFFFFF99" : "#9ca3af",
+                fontSize: 14,
+              }}
               dy={10}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9ca3af", fontSize: 14 }}
+              tick={{
+                fill: bgActive ? "#FFFFFF99" : "#9ca3af",
+                fontSize: 14,
+              }}
               tickFormatter={(value) => `${value}M`}
               domain={[0, 30]}
               ticks={[0, 10, 20, 30]}

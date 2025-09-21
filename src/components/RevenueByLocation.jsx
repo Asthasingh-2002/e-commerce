@@ -1,5 +1,7 @@
 "use client";
 
+import MapImage from "../assets/Map.png"; // Adjust the path as needed
+
 const revenueByLocation = [
   { city: "New York", value: "72K", position: { x: 25, y: 35 } },
   { city: "San Francisco", value: "39K", position: { x: 15, y: 40 } },
@@ -7,47 +9,52 @@ const revenueByLocation = [
   { city: "Singapore", value: "61K", position: { x: 75, y: 55 } },
 ];
 
-export function RevenueByLocation() {
+export function RevenueByLocation({ bgActive }) {
   return (
     <div className="space-y-6">
-      <h3 className="text-md font-semibold text-[#1C1C1C]">
+      <h3
+        className={`text-md font-semibold ${
+          bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+        }`}
+      >
         Revenue by Location
       </h3>
 
-      {/* World Map */}
-      <div className="relative h-40 bg-gray-50 rounded-lg overflow-hidden">
-        <svg
-          viewBox="0 0 100 60"
-          className="w-full h-full"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          {/* Simplified world map paths */}
-          <g fill="#cbd5e1" stroke="none">
-            {/* North America */}
-            <path d="M5,20 L25,15 L30,25 L25,35 L15,40 L5,35 Z" />
-            {/* South America */}
-            <path d="M20,40 L25,35 L30,45 L25,55 L20,50 Z" />
-            {/* Europe */}
-            <path d="M45,15 L55,12 L60,20 L55,25 L45,22 Z" />
-            {/* Africa */}
-            <path d="M45,25 L55,22 L60,35 L55,45 L45,40 Z" />
-            {/* Asia */}
-            <path d="M60,10 L85,8 L90,25 L85,35 L60,30 Z" />
-            {/* Australia */}
-            <path d="M75,45 L85,43 L90,50 L85,55 L75,52 Z" />
-          </g>
+      {/* World Map Image */}
+      <div
+        className={`relative h-40 rounded-lg overflow-hidden ${
+          bgActive ? "bg-[#404040]" : "bg-gray-50"
+        }`}
+      >
+        <img
+          src={MapImage}
+          alt="World Map"
+          className="w-full h-full object-cover absolute top-0 left-0"
+        />
 
-          {/* Location dots */}
-          {revenueByLocation.map((location, idx) => (
-            <circle
-              key={idx}
-              cx={location.position.x}
-              cy={location.position.y}
-              r="1.5"
-              fill="#1f2937"
+        {/* Overlay revenue markers */}
+        {revenueByLocation.map((loc, idx) => (
+          <div
+            key={idx}
+            className="absolute flex flex-col items-center"
+            style={{
+              left: `${loc.position.x}%`,
+              top: `${loc.position.y}%`,
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <div
+              className="bg-blue-500 text-white text-xs px-2 py-1 rounded shadow"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              {loc.value}
+            </div>
+            <div
+              className="w-2 h-2 rounded-full bg-blue-500 border border-white mt-1"
+              title={loc.city}
             />
-          ))}
-        </svg>
+          </div>
+        ))}
       </div>
 
       {/* Location List */}
@@ -55,10 +62,18 @@ export function RevenueByLocation() {
         {revenueByLocation.map((location, idx) => (
           <div key={idx} className="flex items-center justify-between">
             <div className="flex-1">
-              <div className="text-sm font-medium text-[#1C1C1C] mb-1">
+              <div
+                className={`text-sm font-medium mb-1 ${
+                  bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+                }`}
+              >
                 {location.city}
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-1">
+              <div
+                className={`w-full rounded-full h-1 ${
+                  bgActive ? "bg-[#404040]" : "bg-gray-200"
+                }`}
+              >
                 <div
                   className="bg-blue-300 h-1 rounded-full transition-all duration-300"
                   style={{
@@ -70,7 +85,11 @@ export function RevenueByLocation() {
                 />
               </div>
             </div>
-            <div className="ml-4 text-sm font-semibold text-[#1C1C1C]">
+            <div
+              className={`ml-4 text-sm font-semibold ${
+                bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+              }`}
+            >
               {location.value}
             </div>
           </div>
