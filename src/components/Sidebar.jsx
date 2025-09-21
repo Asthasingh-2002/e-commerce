@@ -197,11 +197,6 @@ const Sidebar = ({
                               }`}
                               onClick={() => setActiveSection(subItem.name)}
                             >
-                              <subItem.icon
-                                className={`w-4 h-4 ${
-                                  bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
-                                }`}
-                              />
                               <span>{subItem.name}</span>
                             </button>
                           </li>
