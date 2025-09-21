@@ -181,26 +181,59 @@ export default function OrdersTable({ bgActive }) {
 
   return (
     <div className={`w-full ${bgActive ? "bg-[#1C1C1C]" : "bg-white"}`}>
-      <div className="flex items-center justify-between bg-[#F7F9FB] p-3 rounded-lg ">
-        <div className="flex items-center  gap-4">
-          <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <PlusIcon className=" text-[#1C1C1C] h-4 w-4" />
+      <div
+        className={`flex items-center justify-between ${
+          bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
+        } p-2 rounded-lg`}
+      >
+        <div className="flex items-center gap-4">
+          <button
+            className={`p-2 rounded-lg ${
+              bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
+            }`}
+          >
+            <PlusIcon
+              color={bgActive ? "#FFFFFF" : "#1C1C1C"}
+              className="h-4 w-4"
+            />
           </button>
-          <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <ListFilterIcon className=" text-[#1C1C1C] h-4 w-4" />
+          <button
+            className={`p-2 rounded-lg ${
+              bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
+            }`}
+          >
+            <ListFilterIcon
+              color={bgActive ? "#FFFFFF" : "#1C1C1C"}
+              className="h-4 w-4"
+            />
           </button>
-          <button className="p-2 hover:bg-gray-50 rounded-lg">
-            <ArrowDownUpIcon className=" text-[#1C1C1C] h-4 w-4" />
+          <button
+            className={`p-2 rounded-lg ${
+              bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
+            }`}
+          >
+            <ArrowDownUpIcon
+              color={bgActive ? "#FFFFFF" : "#1C1C1C"}
+              className="h-4 w-4"
+            />
           </button>
         </div>
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <Search
+            className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 ${
+              bgActive ? "text-gray-300" : "text-gray-400"
+            }`}
+          />
           <input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 pr-4 py-1.5 border border-gray-200 rounded-lg bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+            className={`pl-10 pr-4 py-1.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64 ${
+              bgActive
+                ? "border border-[#555555] bg-[#2A2A2A] text-white placeholder-gray-300"
+                : "border border-gray-200 bg-gray-50 text-black placeholder-gray-500"
+            }`}
           />
         </div>
       </div>
@@ -208,39 +241,60 @@ export default function OrdersTable({ bgActive }) {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-100">
+            <tr
+              className={`border-b ${
+                bgActive ? "border-[#FFFFFF33]" : "border-gray-100"
+              }`}
+            >
               <th className="text-left p-4 font-medium text-gray-500 text-sm">
-                {/* <input
-                  type="checkbox"
-                  checked={allChecked}
-                  onChange={handleCheckAll}
-                  className="w-4 h-4 text-white bg-white border-gray-200 rounded-2xl checked:bg-black checked:border-black checked:text-white"
-                /> */}
-
                 <input
                   type="checkbox"
                   checked={allChecked}
                   onChange={handleCheckAll}
-                  style={{ accentColor: "#000000" }}
+                  style={{ accentColor: bgActive ? "#FFFFFF" : "#000000" }}
                   className="w-4 h-4 rounded"
                 />
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 Order ID
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 User
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 Project
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 Address
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 Date
               </th>
-              <th className="text-left p-4 font-medium text-[#1C1C1C66] text-sm">
+              <th
+                className={`text-left p-4 font-medium text-sm ${
+                  bgActive ? "text-[#FFFFFF99]" : "text-[#1C1C1C66]"
+                }`}
+              >
                 Status
               </th>
               <th className="w-8"></th>
@@ -250,18 +304,31 @@ export default function OrdersTable({ bgActive }) {
             {currentOrders.map((order, index) => (
               <tr
                 key={`${order.id}-${index}`}
-                className="border-b border-gray-50 hover:bg-gray-50/50"
+                className={`border-b ${
+                  bgActive
+                    ? "border-[#FFFFFF33] hover:bg-[#333]"
+                    : "border-gray-50 hover:bg-gray-50/50"
+                }`}
               >
                 <td className="p-4">
                   <input
                     type="checkbox"
                     checked={checkedOrders.includes(order.id)}
                     onChange={() => handleCheck(order.id)}
-                    style={{ accentColor: "#000000", borderRadius: "12px" }}
+                    style={{
+                      accentColor: bgActive ? "#FFFFFF" : "#000000",
+                      borderRadius: "12px",
+                    }}
                     className="w-4 h-4 rounded-2xl"
                   />
                 </td>
-                <td className="p-4  text-[#1C1C1C] text-sm">{order.id}</td>
+                <td
+                  className={`p-4 text-sm ${
+                    bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+                  }`}
+                >
+                  {order.id}
+                </td>
                 <td className="p-4">
                   <div className="flex items-center gap-3">
                     <img
@@ -269,16 +336,36 @@ export default function OrdersTable({ bgActive }) {
                       alt={order.user}
                       className="w-8 h-8 rounded-full object-cover"
                     />
-                    <span className="text-[#1C1C1C] text-sm ">
+                    <span
+                      className={`text-sm ${
+                        bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+                      }`}
+                    >
                       {order.user}
                     </span>
                   </div>
                 </td>
-                <td className="p-4 text-gray-700 text-sm">{order.project}</td>
-                <td className="p-4 text-gray-700 text-sm">{order.address}</td>
-                <td className="p-4">
-                  <div className="flex items-center gap-2 text-[#1C1C1C] text-sm">
-                    <CalendarIcon />
+                <td
+                  className={`p-4 text-sm ${
+                    bgActive ? "text-[#FFFFFF]" : "text-gray-700"
+                  }`}
+                >
+                  {order.project}
+                </td>
+                <td
+                  className={`p-4 text-sm ${
+                    bgActive ? "text-[#FFFFFF]" : "text-gray-700"
+                  }`}
+                >
+                  {order.address}
+                </td>
+                <td className={`p-4`}>
+                  <div
+                    className={`flex items-center gap-2 text-sm ${
+                      bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+                    }`}
+                  >
+                    <CalendarIcon color={bgActive ? "#FFFFFF" : "#1C1C1C"} />
                     {order.date}
                   </div>
                 </td>
@@ -287,6 +374,9 @@ export default function OrdersTable({ bgActive }) {
                     className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm ${getStatusColor(
                       order.status
                     )}`}
+                    style={{
+                      background: bgActive ? "#333" : "#F7F9FB",
+                    }}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded mr-1.5 ${
@@ -305,9 +395,15 @@ export default function OrdersTable({ bgActive }) {
                   </span>
                 </td>
                 <td className="p-4">
-                  <button className="p-1 hover:bg-gray-100 rounded">
+                  <button
+                    className={`p-1 rounded ${
+                      bgActive ? "hover:bg-[#333]" : "hover:bg-gray-100"
+                    }`}
+                  >
                     <svg
-                      className="w-4 h-4 text-gray-400"
+                      className={`w-4 h-4 ${
+                        bgActive ? "text-[#FFFFFF99]" : "text-gray-400"
+                      }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -321,15 +417,23 @@ export default function OrdersTable({ bgActive }) {
         </table>
       </div>
 
-      <div className="flex items-center justify-end px-6 py-4 border-t border-gray-100">
+      <div
+        className={`flex items-center justify-end px-6 py-4 border-t ${
+          bgActive ? "border-[#FFFFFF33]" : "border-gray-100"
+        }`}
+      >
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-            className="p-2 hover:bg-gray-50 rounded-lg disabled:opacity-50"
+            className={`p-2 rounded-lg disabled:opacity-50 ${
+              bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
+            }`}
           >
             <svg
-              className="w-4 h-4 text-gray-400"
+              className={`w-4 h-4 ${
+                bgActive ? "text-[#FFFFFF99]" : "text-gray-400"
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -348,7 +452,11 @@ export default function OrdersTable({ bgActive }) {
               onClick={() => handlePageChange(page)}
               className={`w-8 h-8 rounded-lg text-sm font-medium ${
                 page === currentPage
-                  ? "bg-[#1C1C1C0D] text-black"
+                  ? bgActive
+                    ? "bg-[#FFFFFF33] text-[#FFFFFF]"
+                    : "bg-[#1C1C1C0D] text-black"
+                  : bgActive
+                  ? "text-[#FFFFFF99] hover:bg-[#333]"
                   : "text-gray-600 hover:bg-gray-50"
               }`}
             >
@@ -358,10 +466,14 @@ export default function OrdersTable({ bgActive }) {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="p-2 hover:bg-gray-50 rounded-lg disabled:opacity-50"
+            className={`p-2 rounded-lg disabled:opacity-50 ${
+              bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
+            }`}
           >
             <svg
-              className="w-4 h-4 text-gray-400"
+              className={`w-4 h-4 ${
+                bgActive ? "text-[#FFFFFF99]" : "text-gray-400"
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

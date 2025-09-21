@@ -1,14 +1,4 @@
-import React from "react";
-import {
-  BugIcon,
-  SubscribeIcon,
-  UserSquareIcon,
-  Activity1Icon,
-  Activity2Icon,
-  Activity3Icon,
-  Activity4Icon,
-  Activity5Icon,
-} from "../assets/icon";
+import { BugIcon, SubscribeIcon, UserSquareIcon } from "../assets/icon";
 
 const notifications = [
   {
@@ -67,12 +57,36 @@ const activities = [
 ];
 
 const contacts = [
-  { name: "Natali Craig", avatar: "N" },
-  { name: "Drew Cano", avatar: "D" },
-  { name: "Orlando Diggs", avatar: "O" },
-  { name: "Andi Lane", avatar: "A" },
-  { name: "Kate Morrison", avatar: "K" },
-  { name: "Koray Okumus", avatar: "K" },
+  {
+    name: "Natali Craig",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
+  },
+  {
+    name: "Drew Cano",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
+  },
+  {
+    name: "Orlando Diggs",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face",
+  },
+  {
+    name: "Andi Lane",
+    avatar:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face",
+  },
+  {
+    name: "Kate Morrison",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=32&h=32&fit=crop&crop=face",
+  },
+  {
+    name: "Koray Okumus",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
+  },
 ];
 
 const RightSidebar = ({ bgActive }) => {
@@ -168,19 +182,11 @@ const RightSidebar = ({ bgActive }) => {
           <div className="space-y-3">
             {contacts.map((contact, idx) => (
               <div key={idx} className="flex items-center space-x-3">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    bgActive ? "bg-blue-900" : "bg-blue-100"
-                  }`}
-                >
-                  <span
-                    className={`text-xs font-medium ${
-                      bgActive ? "text-blue-300" : "text-blue-600"
-                    }`}
-                  >
-                    {contact.avatar}
-                  </span>
-                </div>
+                <img
+                  src={contact.avatar || "/placeholder.svg"}
+                  alt={contact.name}
+                  className="w-8 h-8 rounded-full object-cover"
+                />
                 <span
                   className={`text-sm ${
                     bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"

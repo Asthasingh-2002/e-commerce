@@ -149,7 +149,11 @@ const MainContent = ({
                     </div>
                   </div>
 
-                  <div className="bg-[#E5ECF6] rounded-2xl p-8 h-fit border border-gray-200">
+                  <div className={`bg-[#E5ECF6] rounded-2xl p-8 h-fit ${
+                    bgActive
+                      ? "text-[#FFFFFF99] border-[#FFFFFF33]"
+                      : "text-[#1C1C1C66] border-[#1C1C1C33]"
+                  }`}>
                     <h3 className="text-sm font-medium text-[#1C1C1C] mb-2">
                       Growth
                     </h3>
@@ -168,7 +172,7 @@ const MainContent = ({
                 {/* Projections vs Actuals */}
                 <div
                   className={`${
-                    bgActive ? "bg-[#404040]" : "bg-white"
+                    bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                   } rounded-xl p-6 `}
                 >
                   <ProjectionsVsActualsChart bgActive={bgActive} />
@@ -180,7 +184,7 @@ const MainContent = ({
                 {/* Revenue Chart */}
                 <div
                   className={`${
-                    bgActive ? "bg-[#404040]" : "bg-white"
+                    bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                   } lg:col-span-2 rounded-xl p-6 `}
                 >
                   <RevenueChart bgActive={bgActive} />
@@ -189,7 +193,7 @@ const MainContent = ({
                 {/* Revenue by Location */}
                 <div
                   className={`${
-                    bgActive ? "bg-[#404040]" : "bg-white"
+                    bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                   } rounded-xl p-6 `}
                 >
                   <RevenueByLocation bgActive={bgActive} />
@@ -201,7 +205,7 @@ const MainContent = ({
                 {/* Top Selling Products */}
                 <div
                   className={`${
-                    bgActive ? "bg-[#404040]" : "bg-white"
+                    bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                   } lg:col-span-2 rounded-xl p-6 `}
                 >
                   <h3
@@ -267,7 +271,7 @@ const MainContent = ({
                 {/* Total Sales */}
                 <div
                   className={`${
-                    bgActive ? "bg-[#404040]" : "bg-white"
+                    bgActive ? "bg-[#404040]" : "bg-[#F7F9FB]"
                   } rounded-xl p-6 `}
                 >
                   <TotalSalesChart bgActive={bgActive} />
