@@ -60,7 +60,7 @@ const MainContent = ({
       <div className="flex-1 flex overflow-hidden">
         {/* Dashboard Content */}
         <main className="flex-1 overflow-y-auto p-6 sidebar-scroll ">
-          <h1 className="text-lg font-semibold text-[#1C1C1C] mb-6">
+          <h1 className={`text-lg font-semibold mb-6 ${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}>
             {activeSection === "Orders" ? "Order List" : "eCommerce"}
           </h1>
           {activeSection === "Orders" ? (
@@ -149,11 +149,13 @@ const MainContent = ({
                     </div>
                   </div>
 
-                  <div className={`bg-[#E5ECF6] rounded-2xl p-8 h-fit ${
-                    bgActive
-                      ? "text-[#FFFFFF99] border-[#FFFFFF33]"
-                      : "text-[#1C1C1C66] border-[#1C1C1C33]"
-                  }`}>
+                  <div
+                    className={`bg-[#E5ECF6] rounded-2xl p-8 h-fit ${
+                      bgActive
+                        ? "text-[#FFFFFF99] border-[#FFFFFF33]"
+                        : "text-[#1C1C1C66] border-[#1C1C1C33]"
+                    }`}
+                  >
                     <h3 className="text-sm font-medium text-[#1C1C1C] mb-2">
                       Growth
                     </h3>

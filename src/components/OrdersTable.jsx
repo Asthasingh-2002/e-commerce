@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search, Calendar, ListFilter, ArrowDownUp, Plus } from "lucide-react";
+import { Search } from "lucide-react";
 import {
   ArrowDownUpIcon,
   CalendarIcon,
@@ -188,7 +188,7 @@ export default function OrdersTable({ bgActive }) {
       >
         <div className="flex items-center gap-4">
           <button
-            className={`p-2 rounded-lg ${
+            className={`p-1 rounded-lg ${
               bgActive ? "hover:bg-[#333]" : "hover:bg-gray-50"
             }`}
           >
@@ -247,13 +247,33 @@ export default function OrdersTable({ bgActive }) {
               }`}
             >
               <th className="text-left p-4 font-medium text-gray-500 text-sm">
-                <input
-                  type="checkbox"
-                  checked={allChecked}
-                  onChange={handleCheckAll}
-                  style={{ accentColor: bgActive ? "#FFFFFF" : "#000000" }}
-                  className="w-4 h-4 rounded"
-                />
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    checked={allChecked}
+                    onChange={handleCheckAll}
+                    className={`w-4 h-4 rounded appearance-none border-2 cursor-pointer relative ${
+                      bgActive
+                        ? "bg-[#1C1C1C] border-[#555555] checked:bg-[#C6C7F8] checked:border-[#C6C7F8]"
+                        : "bg-[#F7F9FB] border-gray-300 checked:bg-[#1C1C1C] checked:border-[#1C1C1C]"
+                    }`}
+                  />
+                  {allChecked && (
+                    <svg
+                      className={`absolute inset-0 w-4 h-4 pointer-events-none ${
+                        bgActive ? "text-[#1C1C1C]" : "text-white"
+                      }`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  )}
+                </div>
               </th>
               <th
                 className={`text-left p-4 font-medium text-sm ${
@@ -311,16 +331,33 @@ export default function OrdersTable({ bgActive }) {
                 }`}
               >
                 <td className="p-4">
-                  <input
-                    type="checkbox"
-                    checked={checkedOrders.includes(order.id)}
-                    onChange={() => handleCheck(order.id)}
-                    style={{
-                      accentColor: bgActive ? "#FFFFFF" : "#000000",
-                      borderRadius: "12px",
-                    }}
-                    className="w-4 h-4 rounded-2xl"
-                  />
+                  <div className="relative">
+                    <input
+                      type="checkbox"
+                      checked={checkedOrders.includes(order.id)}
+                      onChange={() => handleCheck(order.id)}
+                      className={`w-4 h-4 rounded appearance-none border-2 cursor-pointer flex relative ${
+                        bgActive
+                          ? "bg-[#1C1C1C] border-[#555555] checked:bg-[#C6C7F8] checked:border-[#C6C7F8]"
+                          : "bg-white border-gray-300 checked:bg-[#1C1C1C] checked:border-[#1C1C1C]"
+                      }`}
+                    />
+                    {checkedOrders.includes(order.id) && (
+                      <svg
+                        className={`absolute inset-0 w-4 h-4 pointer-events-none ${
+                          bgActive ? "text-[#1C1C1C]" : "text-white"
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
+                  </div>
                 </td>
                 <td
                   className={`p-4 text-sm ${
@@ -371,12 +408,9 @@ export default function OrdersTable({ bgActive }) {
                 </td>
                 <td className="p-4">
                   <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm ${getStatusColor(
+                    className={`inline-flex items-center px-2.5 py-1  text-sm ${getStatusColor(
                       order.status
                     )}`}
-                    style={{
-                      background: bgActive ? "#333" : "#F7F9FB",
-                    }}
                   >
                     <span
                       className={`w-1.5 h-1.5 rounded mr-1.5 ${
@@ -404,8 +438,9 @@ export default function OrdersTable({ bgActive }) {
                       className={`w-4 h-4 ${
                         bgActive ? "text-[#FFFFFF99]" : "text-gray-400"
                       }`}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                     </svg>

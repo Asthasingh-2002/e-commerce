@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search, Moon } from "lucide-react";
 import {
   BellIcon,
   ClockIcon,
@@ -67,11 +67,12 @@ const Header = ({
               <input
                 type="text"
                 placeholder="Search"
-                className={`pl-10 pr-4 py-2 border-0 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 placeholder:text-[#1C1C1C33] ${
-                  bgActive
-                    ? "bg-[#404040] text-[#FFFFFF]"
-                    : "bg-gray-100 text-[#1C1C1C]"
-                }`}
+                className={`pl-10 pr-4 py-2 border-0 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-blue-500
+                  ${
+                    bgActive
+                      ? "bg-[#404040] text-[#FFFFFF33] placeholder:text-[#FFFFFF33]"
+                      : "bg-gray-100 text-[#1C1C1C] placeholder:text-[#1C1C1C33]"
+                  }`}
                 style={{
                   backgroundColor: bgActive ? "#404040" : "#F3F4F6",
                   fontWeight: "400",
@@ -88,7 +89,11 @@ const Header = ({
               }`}
               onClick={() => setBgActive((prev) => !prev)}
             >
-              <SunIcon color={bgActive ? "#FFFFFF" : "#1C1C1C"} />
+              {bgActive ? (
+                <SunIcon color="#FFFFFF" />
+              ) : (
+                <Moon color="#1C1C1C" size={16} />
+              )}
             </button>
             <button
               className={`p-1 rounded-lg ${

@@ -137,7 +137,7 @@ const Sidebar = ({
                     className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                       bgActive
                         ? activeSection === item.name
-                          ? "bg-[#1C1C1C] text-[#FFFFFF]"
+                          ? "bg-[#404040] text-[#FFFFFF]"
                           : "bg-[#1C1C1C] text-[#FFFFFF] hover:bg-[#404040] hover:text-[#FFFFFF]"
                         : activeSection === item.name
                         ? "bg-gray-100 text-[#1C1C1C] "
