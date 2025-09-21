@@ -52,12 +52,12 @@ const contacts = [
   { name: "Koray Okumus", avatar: "K" },
 ];
 
-const RightSidebar = () => {
+const RightSidebar = ({ bgActive }) => {
   return (
     <div>
       <aside
         className={`sidebar-scroll         
-       bg-white border-r border-gray-200 transition-all duration-300 h-screen overflow-y-auto`}
+       ${bgActive ? "bg-[#1C1C1C]" : "bg-white"} border-r border-gray-200 transition-all duration-300 h-screen overflow-y-auto`}
       >
         {" "}
         {/* Added h-screen and overflow-y-auto */}

@@ -110,7 +110,7 @@ const getStatusColor = (status) => {
   }
 };
 
-export default function OrdersTable() {
+export default function OrdersTable({ bgActive }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [checkedOrders, setCheckedOrders] = useState([]);
   const [allChecked, setAllChecked] = useState(false);
@@ -180,7 +180,7 @@ export default function OrdersTable() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className={`w-full ${bgActive ? "bg-[#1C1C1C]" : "bg-white"}`}>
       <div className="flex items-center justify-between bg-[#F7F9FB] p-3 rounded-lg ">
         <div className="flex items-center  gap-4">
           <button className="p-2 hover:bg-gray-50 rounded-lg">
@@ -348,7 +348,7 @@ export default function OrdersTable() {
               onClick={() => handlePageChange(page)}
               className={`w-8 h-8 rounded-lg text-sm font-medium ${
                 page === currentPage
-                  ? "bg-gray-900 text-white"
+                  ? "bg-[#1C1C1C0D] text-black"
                   : "text-gray-600 hover:bg-gray-50"
               }`}
             >

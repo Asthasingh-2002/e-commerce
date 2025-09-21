@@ -2,13 +2,8 @@
 
 import {
   BarChart3,
-  Building2,
   FileText,
   FolderOpen,
-  MessageSquare,
-  Settings,
-  ShoppingCart,
-  User,
   ChevronDown,
   ChevronRight,
   Users,
@@ -80,7 +75,12 @@ const sidebarItems = [
   },
 ];
 
-const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
+const Sidebar = ({
+  sidebarCollapsed,
+  activeSection,
+  setActiveSection,
+  bgActive,
+}) => {
   const [expandedItems, setExpandedItems] = useState({});
 
   const toggleExpanded = (itemName) => {
@@ -92,12 +92,15 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
 
   return (
     <div
-      className={`${
-        sidebarCollapsed ? "w-16" : "w-64"
-      } bg-white border-r border-gray-200 transition-all duration-300 h-screen flex flex-col`}
+      className={`${sidebarCollapsed ? "w-16" : "w-64"} ${
+        bgActive ? "bg-[#1C1C1C]" : "bg-white"
+      } border-r border-gray-200 transition-all duration-300 h-screen flex flex-col`}
     >
-      {/* Fixed avatar/name section */}
-      <div className="p-4 sticky top-0 bg-white z-10">
+      <div
+        className={`p-4 sticky top-0 z-10 ${
+          bgActive ? "bg-[#1C1C1C]" : "bg-white"
+        }`}
+      >
         <div className="flex items-center space-x-2">
           <img
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
@@ -105,7 +108,7 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
             className="w-8 h-8 rounded-2xl object-cover"
           />
           {!sidebarCollapsed && (
-            <span className="font-semibold text-[#1C1C1C]">ByeWind</span>
+            <span className={`font-semibold ${bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"}`}>ByeWind</span>
           )}
         </div>
       </div>
@@ -115,17 +118,21 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
         {sidebarItems.map((section, idx) => (
           <div key={idx}>
             {!sidebarCollapsed && (
-              <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2 flex items-center">
+              <p className="text-sm font-sm text-gray-500  tracking-wider mb-2 flex items-center">
                 {section.category}
-              </h3>
+              </p>
             )}
             <ul className="space-y-1">
               {section.items.map((item, itemIdx) => (
                 <li key={itemIdx}>
                   <button
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-md transition-colors ${
-                      activeSection === item.name
-                        ? "bg-gray-100 text-[#1C1C1C] font-medium"
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
+                      bgActive
+                        ? activeSection === item.name
+                          ? "bg-[#1C1C1C] text-[#FFFFFF]"
+                          : "bg-[#1C1C1C] text-[#FFFFFF] hover:bg-[#404040] hover:text-[#FFFFFF]"
+                        : activeSection === item.name
+                        ? "bg-gray-100 text-[#1C1C1C] "
                         : "text-[#1C1C1C] hover:bg-gray-50 hover:text-[#1C1C1C]"
                     }`}
                     onClick={() => {
@@ -140,17 +147,36 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
                       {!sidebarCollapsed && item.hasSubItems && (
                         <div className="ml-auto">
                           {expandedItems[item.name] ? (
-                            <ChevronDown className="w-4 h-4 text-[#1C1C1C33]" />
+                            <ChevronDown
+                              className={`w-4 h-4 ${
+                                bgActive
+                                  ? "text-[#FFFFFF99]"
+                                  : "text-[#1C1C1C33]"
+                              }`}
+                            />
                           ) : (
-                            <ChevronRight className="w-4 h-4 text-[#1C1C1C33]" />
+                            <ChevronRight
+                              className={`w-4 h-4 ${
+                                bgActive
+                                  ? "text-[#FFFFFF99]"
+                                  : "text-[#1C1C1C33]"
+                              }`}
+                            />
                           )}
                         </div>
                       )}
 
                       {section.category === "Favorites/Recently" ? (
-                        <span className="inline-block w-2 h-2 rounded-full bg-gray-400" />
+                        <span
+                          className={`inline-block w-2 h-2 rounded-full ${
+                            bgActive ? "bg-[#FFFFFF99]" : "bg-gray-400"
+                          }`}
+                        />
                       ) : (
-                        <item.icon className="w-4 h-4" />
+                        <item.icon
+                          color={bgActive ? "#FFFFFF" : "#1C1C1C"}
+                          className="w-4 h-4"
+                        />
                       )}
                       {!sidebarCollapsed && <span>{item.name}</span>}
                     </div>
@@ -164,10 +190,18 @@ const Sidebar = ({ sidebarCollapsed, activeSection, setActiveSection }) => {
                         {item.subItems.map((subItem, subIdx) => (
                           <li key={subIdx}>
                             <button
-                              className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors text-[#1C1C1C] hover:bg-gray-50 hover:text-[#1C1C1C]"
+                              className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                                bgActive
+                                  ? "bg-[#1C1C1C] text-[#FFFFFF] hover:bg-[#404040] hover:text-[#FFFFFF]"
+                                  : "text-[#1C1C1C] hover:bg-gray-50 hover:text-[#1C1C1C]"
+                              }`}
                               onClick={() => setActiveSection(subItem.name)}
                             >
-                              {/* <subItem.icon className="w-4 h-4" /> */}
+                              <subItem.icon
+                                className={`w-4 h-4 ${
+                                  bgActive ? "text-[#FFFFFF]" : "text-[#1C1C1C]"
+                                }`}
+                              />
                               <span>{subItem.name}</span>
                             </button>
                           </li>

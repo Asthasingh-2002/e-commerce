@@ -8,10 +8,21 @@ import {
   TabIcon,
 } from "../assets/icon";
 
-const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
+const Header = ({
+  setSidebarCollapsed,
+  sidebarCollapsed,
+  activeSection,
+  bgActive,
+  setBgActive, // Receive setter
+}) => {
   return (
     <>
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
+      <header
+        className="border-b border-gray-200 px-6 py-4"
+        style={{
+          background: bgActive ? "#1C1C1C" : "#fff",
+        }}
+      >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
@@ -23,8 +34,7 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
               {activeSection && <span className=" text-gray-500">/</span>}
               <span className="text-sm text-[#1C1C1C] font-medium">
                 {activeSection}
-              </span>{" "}
-              {/* Updated */}
+              </span>
             </div>
           </div>
 
@@ -49,7 +59,10 @@ const Header = ({ setSidebarCollapsed, sidebarCollapsed, activeSection }) => {
               </span>
             </div>
 
-            <button className="p-1 hover:bg-gray-100 rounded-lg">
+            <button
+              className="p-1 hover:bg-gray-100 rounded-lg"
+              onClick={() => setBgActive((prev) => !prev)} // Toggle theme
+            >
               <SunIcon />
             </button>
             <button className="p-1 hover:bg-gray-100 rounded-lg">

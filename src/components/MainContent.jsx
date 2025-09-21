@@ -46,14 +46,22 @@ const MainContent = ({
   setSidebarCollapsed,
   sidebarCollapsed,
   activeSection,
+  bgActive, 
+  setBgActive, 
 }) => {
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-white">
+    <div
+      className={`flex-1 flex flex-col overflow-hidden ${
+        bgActive ? "bg-[#1C1C1C]" : "bg-white"
+      }`}
+    >
       {/* Header */}
       <Header
         setSidebarCollapsed={setSidebarCollapsed}
         sidebarCollapsed={sidebarCollapsed}
         activeSection={activeSection}
+        bgActive={bgActive}
+        setBgActive={setBgActive}
       />
 
       <div className="flex-1 flex overflow-hidden">
@@ -64,7 +72,7 @@ const MainContent = ({
           </h1>
           {activeSection === "Orders" ? (
             <div>
-              <OrdersTable />
+              <OrdersTable bgActive={bgActive} />
             </div>
           ) : (
             <>
