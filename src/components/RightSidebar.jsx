@@ -89,14 +89,21 @@ const contacts = [
   },
 ];
 
-const RightSidebar = ({ bgActive }) => {
+const RightSidebar = ({ bgActive, collapsed }) => {
   return (
     <div>
       <aside
-        className={`sidebar-scroll         
-       ${
-         bgActive ? "bg-[#1C1C1C]" : "bg-white"
-       } border-r border-gray-200 transition-all duration-300 h-screen overflow-y-auto`}
+        className={`sidebar-scroll
+          ${bgActive ? "bg-[#1C1C1C]" : "bg-white"}
+          border-r border-gray-200 transition-all duration-300 h-screen overflow-y-auto
+          ${collapsed ? "w-0 min-w-0 opacity-0 pointer-events-none" : "w-80"}
+        `}
+        style={{
+          width: collapsed ? 0 : 320, // 320px = w-80
+          minWidth: collapsed ? 0 : 320,
+          opacity: collapsed ? 0 : 1,
+          transition: "all 0.3s",
+        }}
       >
         <div className="p-6">
           <h2

@@ -13,7 +13,8 @@ const Header = ({
   sidebarCollapsed,
   activeSection,
   bgActive,
-  setBgActive, // Receive setter
+  setBgActive,
+  setRightSidebarCollapsed,
 }) => {
   return (
     <>
@@ -113,6 +114,7 @@ const Header = ({
               className={`p-1 rounded-lg ${
                 bgActive ? "hover:bg-[#404040]" : "hover:bg-gray-100"
               }`}
+              onClick={() => setRightSidebarCollapsed((prev) => !prev)} // Add this
             >
               <TabIcon color={bgActive ? "#FFFFFF" : "#1C1C1C"} />
             </button>

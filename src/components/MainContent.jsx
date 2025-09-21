@@ -41,6 +41,8 @@ const MainContent = ({
   activeSection,
   bgActive,
   setBgActive,
+  rightSidebarCollapsed,
+  setRightSidebarCollapsed,
 }) => {
   return (
     <div
@@ -55,6 +57,8 @@ const MainContent = ({
         activeSection={activeSection}
         bgActive={bgActive}
         setBgActive={setBgActive}
+        rightSidebarCollapsed={rightSidebarCollapsed}
+        setRightSidebarCollapsed={setRightSidebarCollapsed}
       />
 
       <div className="flex-1 flex overflow-hidden">
